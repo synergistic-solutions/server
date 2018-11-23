@@ -92,10 +92,7 @@ class Handler(socket.socket):
         self.buffer = b''
         self._closed = False
 
-    def is_closed(self):
-        return self._closed
-
-    def on_message(self):
+    def on_receive(self):
         message = self.recv(4096)
         if not message:
             self.close()
@@ -186,6 +183,3 @@ class Server(socket.socket):
         client_conn = self.handler(fd=original_client_conn.fileno())
         original_client_conn.detach()
         return client_conn
-
-    def is_closed(self):
-        return self._closed
