@@ -1,7 +1,8 @@
 import setuptools
 
 setuptools.setup(
-    name="server",
+    name="synergistic.server",
     description="Web Server",
-    packages=setuptools.find_packages(),
+    packages=setuptools.find_namespace_packages(),
+    namespace_packages=['synergistic']
 )
