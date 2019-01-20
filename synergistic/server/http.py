@@ -147,7 +147,7 @@ class Handler(socket.socket):
         if headers.get('Content-Type', '') == 'text/html; charset=UTF-8' and body:
             data = {}
             for arg in body.split('&'):
-                key, value = arg.split('=')
+                key, value = arg.split('=', 1)
                 data[key] = value.strip()
         elif headers.get('Content-Type', '') == 'application/json':
             data = json.loads(body)
@@ -155,7 +155,7 @@ class Handler(socket.socket):
             data = {}
             url, args = url.split('?', 1)
             for arg in args.split('&'):
-                key, value = arg.split('=')
+                key, value = arg.split('=', 1)
                 data[key] = value.strip()
         else:
             data = body
