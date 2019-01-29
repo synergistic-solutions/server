@@ -14,7 +14,7 @@ class Handler(ssl.SSLSocket, http.Handler):
 
 class Server(http.Server):
 
-    def __init__(self, hostname: str="0.0.0.0", port: int=443, handler=Handler, certfile='', keyfile=''):
+    def __init__(self, hostname: str = "0.0.0.0", port: int = 443, handler=Handler, certfile='', keyfile=''):
         handler.certfile = certfile
         handler.keyfile = keyfile
         super().__init__(hostname, port, handler)
