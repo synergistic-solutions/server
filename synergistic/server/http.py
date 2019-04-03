@@ -75,31 +75,6 @@ RESPONSE_CODES = {
     511:    "Network Authentication",
 }
 
-CONTENT_TYPES = {
-    "bin": "application/octet-stream",
-    "bz": "application/x-bzip",
-    "bz2": "application/x-bzip2",
-    "css": "text/css",
-    "csv": "text/csv",
-    "gif": "image/gif",
-    "htm": "text/html",
-    "html": "text/html",
-    "ico": "image/x-icon",
-    "jpeg": "image/jpeg",
-    "ipg": "image/jpeg",
-    "js": "application/javascript",
-    "json": "application/json",
-    "png": "image/png",
-    "pdf": "application/pdf",
-    "sh": "application/x-sh",
-    "tar": "application/x-tar",
-    "ttf": "font/ttf",
-    "txt": "text/plain",
-    "webm": "video/webm",
-    "xml": "application/xml",
-    "zip": "application/zip",
-}
-
 
 class Handler(socket.socket):
     server_name = 'Python socket server'
