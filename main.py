@@ -1,3 +1,4 @@
+import base64
 from synergistic import poller, server, broker
 
 
@@ -12,7 +13,11 @@ class Handler(server.http.Handler):
         self.broker.publish('request.' + reverse, data, self.callback)
 
     def callback(self, channel, msg_id, payload):
-        self.respond(payload.get('code', 200), payload.get('body', ''), payload.get('headers', None))
+        encoded = payload.get('b64d', False)
+        body = payload.get('body', '')
+        if encoded:
+            body = base64.b64decode(body)
+        self.respond(payload.get('code', 200), body, payload.get('headers', None))
         self.close()
 
 
