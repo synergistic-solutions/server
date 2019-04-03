@@ -24,7 +24,7 @@ class Handler(server.http.Handler):
 if __name__ == "__main__":
     poller = poller.Poll(catch_errors=False)
 
-    broker_client = broker.client.Client("127.0.0.1", 8891, broker.Type.SERVER)
+    broker_client = broker.Client("127.0.0.1", 8891, broker.Type.SERVER)
 
     http_server = server.http.Server(hostname="0.0.0.0", handler=Handler)
 
